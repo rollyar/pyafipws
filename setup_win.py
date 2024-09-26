@@ -27,7 +27,7 @@ except:
 
 __version__ = "%s.%s.%s" % (sys.version_info[0:2] + (rev, ))
 
-HOMO = True
+HOMO = False
 
 # build a one-click-installer for windows:
 import py2exe
