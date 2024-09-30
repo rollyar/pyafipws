@@ -151,10 +151,11 @@ excludes=["pywin", "pywin.dialogs", "pywin.dialogs.list", "win32ui",
 
 # basic options for py2exe
 opts = { 
-    'py2exe': {
+    'py2exe': {      
         'includes': includes,
         'optimize': 0,
         'excludes': excludes,
+
         'dll_excludes': ["mswsock.dll", "powrprof.dll", "KERNELBASE.dll", 
                         "tcl85.dll", "tk85.dll",
                         # Windows 8.1 DLL:
@@ -620,16 +621,17 @@ long_desc = ("Interfases, herramientas y aplicativos para Servicios Web"
              "RENPRE (Trazabilidad de Precursores Químicos), "
              "ARBA (Remito Electrónico)")
 
+valid_version =  "3.10.3046" #re.sub(r'[^\w\.]', '.', __version__)
 
 setup(name="PyAfipWs",
-      version=__version__,
+      version=valid_version,
       description=desc,
       long_description=long_desc,
       author="Mariano Reingart",
       author_email="reingart@gmail.com",
       url="http://www.sistemasagiles.com.ar",
       license="GNU GPL v3+",
-      options=opts,
+      options=opts, 
       data_files=data_files,
             classifiers = [
             "Development Status :: 5 - Production/Stable",

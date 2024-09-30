@@ -1,6 +1,6 @@
 @echo off
 
-rem Instalación y registración de las dependencias para el proyecto PyAfipWs
+rem Instalaciï¿½n y registraciï¿½n de las dependencias para el proyecto PyAfipWs
 rem 2015 (c) Mariano Reingart <reingart@gmail.com> - Licencia: GPLv3+
 
 rem Nota: Es recomendable ejecutar este programa como Administrador 
@@ -17,40 +17,33 @@ if %ERRORLEVEL%==9009 (
    exit 1
 )
 
-echo *** Instalar las dependencias binarias (precompiladas):
-
-pip install http://www.sistemasagiles.com.ar/soft/pyafipws/M2Crypto-0.22.3-cp27-none-win32.whl
-pip install http://www.sistemasagiles.com.ar/soft/pyafipws/pywin32-219-cp27-none-win32.whl
-
-echo *** Instalar el resto de las dependencias:
-
 pip install -r requirements.txt
 
 echo *** Registrando componentes...
 
 python wsaa.py --register
 python wsfev1.py --register
-python wsfexv1.py --register
-python wsbfev1.py --register
-python wsmtx.py --register
+rem python wsfexv1.py --register
+rem python wsbfev1.py --register
+rem python wsmtx.py --register
 
-python wscdc.py --register
+rem python wscdc.py --register
 
-python pyfepdf.py --register
-python pyi25.py --register
-python pyemail.py --register
+rem python pyfepdf.py --register
+rem python pyi25.py --register
+rem python pyemail.py --register
 
-python padron.py --register
+rem python padron.py --register
 
-python cot.py --register
+rem python cot.py --register
 
-python wsctgv2.py --register
-python wslpg.py --register
+rem python wsctgv2.py --register
+rem python wslpg.py --register
 
-python trazamed.py --register
-python trazarenpre.py --register
-python trazafito.py --register
-python trazavet.py --register
+rem python trazamed.py --register
+rem python trazarenpre.py --register
+rem python trazafito.py --register
+rem python trazavet.py --register
 
 echo *** Listo!
 

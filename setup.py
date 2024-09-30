@@ -73,7 +73,7 @@ setup(
         "future>=0.18.2",
     ],
     extras_require={
-        "opt": ["pywin32==304;sys_platform == 'win32' and python_version > '3'"]
+        "opt": ["pywin32==306;sys_platform == 'win32' and python_version > '3'"]
     },
     options=opts,
     data_files=data_files,
