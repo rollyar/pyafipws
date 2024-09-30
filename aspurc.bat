@@ -26,8 +26,10 @@ pip install --upgrade virtualenv
 
 pause
 echo ** Descargar redist a la carpeta
+start https://www.7-zip.org/a/7z2408.exe
+start https://sourceforge.net/projects/nsis/files/latest/download
+
 curl -L https://aka.ms/vs/17/release/vc_redist.x86.exe -o vcredist.exe
-curl -L https://sourceforge.net/projects/nsis/files/latest/download -o NSISInstaller.exe
 pause
 
 echo ***** Descargar fuentes
