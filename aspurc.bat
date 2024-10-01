@@ -19,33 +19,36 @@ if %ERRORLEVEL%==9009 (
 
 echo *** Instalar utilidades de instalacion / entorno virtual:
 python -m pip install --upgrade pip
-python -m pip install --upgrade setuptools wheel
-python -m pip install --upgrade cachetools pefile
-rem pip install --upgrade wheel
 pip install --upgrade virtualenv
 
-pause
 echo ** Descargar redist a la carpeta
+rem instalar 7zip(32bit)
 start https://www.7-zip.org/a/7z2408.exe
+
+rem instalar nsis
 start https://sourceforge.net/projects/nsis/files/latest/download
 
+rem descargar vc_redist(32 bit) y renombrar a vcredist.exe
 curl -L https://aka.ms/vs/17/release/vc_redist.x86.exe -o vcredist.exe
-pause
+
 
 echo ***** Descargar fuentes
-git clone https://github.com/reingart/pyafipws.git
-cd pyafipws
+rem git clone https://github.com/reingart/pyafipws.git pyafip
+git clone https://github.com/rollyar/pyafipws.git pyafip
+cd pyafip
 
 echo *** Crear y activar el entorno virtual venv (en el directorio actual):
 virtualenv venv
 venv\Scripts\activate
 
-rem echo *** Limpiando py2 anterior
-rem python -c "import aenum, os; os.unlink(os.path.join(os.path.dirname(aenum.__file__), '_py2.py'))"
-
 echo *** Instalando dependencias del proyecto:
+python -m pip install --upgrade setuptools wheel
+python -m pip install --upgrade cachetools pefile
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
+
+echo *** Limpiando py2 anterior
+python -c "import aenum, os; os.unlink(os.path.join(os.path.dirname(aenum.__file__), '_py2.py'))"
 
 python setup.py bdist_wheel sdist
 python setup.py install
